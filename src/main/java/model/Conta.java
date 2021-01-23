@@ -1,10 +1,14 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
-@Embeddable
+@Entity
+@Table(name = "tab_conta")
 public class Conta {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = "conta_numero")
     private String numeroConta ;
@@ -14,6 +18,14 @@ public class Conta {
 
     public String getNumeroConta() {
         return numeroConta;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setNumeroConta(String numeroConta) {

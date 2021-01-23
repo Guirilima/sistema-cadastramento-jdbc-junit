@@ -23,7 +23,7 @@ public class UsuarioEntity {
     @Column(length = 12,nullable = false)
     private String cpf;
 
-    @EmbeddedId
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Conta conta = new Conta();
 
     public Conta getConta() {

@@ -40,9 +40,9 @@ public class UsuarioRepository {
 
     public void incluir(UsuarioEntity usuarioEntity) {
 
-        em.getTransaction().begin();
+        //em.getTransaction().begin();
         em.persist(usuarioEntity);
-        em.getTransaction().commit();
+        //em.getTransaction().commit();
     }
 
     public void alterar(UsuarioEntity usuarioEntity) {
