@@ -1,5 +1,6 @@
 package service;
 
+import Utils.TextoUtils;
 import model.UsuarioEntity;
 import repository.UsuarioRepository;
 
@@ -13,13 +14,12 @@ public class UsuarioService {
 
     private UsuarioRepository rep = new UsuarioRepository();
 
-    public void incluir(UsuarioEntity usuarioEntity) {
-        //Acompanhar depois a aula, para pegar a CLASSE TextoUtils lógica.
+    public void incluir(UsuarioEntity usuarioEntity) throws IllegalAccessException {
 
-//        boolean comprimentoValido = TextoUtils.validaComprimento(usuarioEntity.getLogin(),20);
-//        if (!comprimentoValido) {
-//            throw new IllegalAccessException();
-//        }
+        boolean comprimentoValido = TextoUtils.validaComprimento(usuarioEntity.getLogin(),20);
+        if (!comprimentoValido) {
+            throw new IllegalAccessException();
+        }
 
         usuarioEntity = rep.buscarByLogin(usuarioEntity.getLogin());
 
