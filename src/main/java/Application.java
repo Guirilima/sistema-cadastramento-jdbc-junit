@@ -1,12 +1,11 @@
 import Utils.ConexaoFactory;
 import model.UsuarioEntity;
+import repository.UsuarioRepository;
 
 import javax.persistence.EntityManager;
 
 public class Application {
     public static void main(String[] args) {
-
-        EntityManager em = ConexaoFactory.getConexao();
 
         UsuarioEntity usuarioEntity = new UsuarioEntity();
         usuarioEntity.setLogin("Guirilima");
@@ -14,8 +13,15 @@ public class Application {
         usuarioEntity.setCpf("3434344");
         usuarioEntity.setSenha("1234");
 
-        em.getTransaction().begin();
-        em.persist(usuarioEntity);
-        em.getTransaction().commit();
+        UsuarioRepository repository = new UsuarioRepository();
+        repository.incluir(usuarioEntity);
+
+        //Buscando usuario pelo login
+        usuarioEntity = new UsuarioEntity();
+        usuarioEntity = repository.buscar("Guirilima");
+
+        //Alterando Dados do Usuario
+        usuarioEntity.setNome("NOVO NOME");
+        repository.alterar(usuarioEntity);
     }
 }
