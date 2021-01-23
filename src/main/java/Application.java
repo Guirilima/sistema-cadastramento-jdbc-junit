@@ -1,4 +1,5 @@
 import Utils.ConexaoFactory;
+import model.Conta;
 import model.UsuarioEntity;
 import repository.UsuarioRepository;
 import service.UsuarioService;
@@ -35,6 +36,23 @@ public class Application {
 
         ///////////////////////
         UsuarioService service = new UsuarioService();
+        service.incluir(usuarioEntity);
+
+
+
+
+
+        ///// TESTE COM CONTA
+        usuarioEntity = new UsuarioEntity();
+        usuarioEntity.setLogin("Guirilima2");
+        usuarioEntity.setNome("Guilherme2");
+        usuarioEntity.setCpf("34343");
+        usuarioEntity.setSenha("4321");
+
+        Conta conta = usuarioEntity.getConta();
+        conta.setNumeroConta("232323");
+        conta.setSaldo(11.1);
+
         service.incluir(usuarioEntity);
     }
 }

@@ -23,6 +23,17 @@ public class UsuarioEntity {
     @Column(length = 12,nullable = false)
     private String cpf;
 
+    @EmbeddedId
+    private Conta conta = new Conta();
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
+
     public UsuarioEntity(){}
 
     public UsuarioEntity(Integer id, String login, String senha, String nome, String cpf) {
