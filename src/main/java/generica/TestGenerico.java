@@ -11,16 +11,16 @@ public class TestGenerico {
         B bb = new B();
 
         cg.add(a);
-        //cg.add(b);
+        //cg.add(b);    //Definimos na linha 5, que iremos trabalhar com a Classe A
 
         cg.add(aa);
-        //cg.add(bb);
+        //cg.add(bb);   //Definimos na linha 5, que iremos trabalhar com a Classe A
 
         for ( A i : cg.getList() ) {
             i.metodo();
         }
 
-        B find = cg.get(0); //Dará erro na conversão do cast
+        B find = cg.get(0); //Dará erro na conversão do cast  //Definimos na linha 5, que iremos trabalhar com a Classe A
         A find2 = cg.get(0); //Sucesso.
     }
 }
