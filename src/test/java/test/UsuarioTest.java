@@ -25,7 +25,7 @@ public class UsuarioTest {
 
     //Exemplo em Aula
     @Test
-    void loginComprimentoTest() {
+    static void loginComprimentoTest() {
         UsuarioEntity usuario = new UsuarioEntity();
         usuario.setLogin("Guirilima");
 

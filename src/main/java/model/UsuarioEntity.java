@@ -1,6 +1,8 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
@@ -8,6 +10,8 @@ import java.util.Objects;
 public class UsuarioEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String login;
     private String senha;
     private String nome;
@@ -15,11 +19,20 @@ public class UsuarioEntity {
 
     public UsuarioEntity(){}
 
-    public UsuarioEntity(String login, String senha, String nome, String cpf) {
+    public UsuarioEntity(Integer id, String login, String senha, String nome, String cpf) {
+        this.id = id;
         this.login = login;
         this.senha = senha;
         this.nome = nome;
         this.cpf = cpf;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLogin() {
