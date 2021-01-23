@@ -1,15 +1,20 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class UsuarioEntity {
 
+    @Id
     private String login;
     private String senha;
     private String nome;
     private String cpf;
 
     public UsuarioEntity(){}
+
     public UsuarioEntity(String login, String senha, String nome, String cpf) {
         this.login = login;
         this.senha = senha;
