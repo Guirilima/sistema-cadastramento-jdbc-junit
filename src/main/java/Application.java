@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 public class Application {
     public static void main(String[] args) throws IllegalAccessException {
 
+        System.out.println("Oiee");
+
         UsuarioEntity usuarioEntity = new UsuarioEntity();
         usuarioEntity.setLogin("Guirilima");
         usuarioEntity.setNome("Guilherme");
