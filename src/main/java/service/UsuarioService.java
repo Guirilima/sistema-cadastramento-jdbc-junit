@@ -14,17 +14,17 @@ public class UsuarioService {
     private UsuarioRepository rep = new UsuarioRepository();
 
     public void incluir(UsuarioEntity usuarioEntity) {
-        //Validação usando o JUnit.
-        //Acompanhar depois a lógica.
+        //Acompanhar depois a aula, para pegar a CLASSE TextoUtils lógica.
 
 //        boolean comprimentoValido = TextoUtils.validaComprimento(usuarioEntity.getLogin(),20);
 //        if (!comprimentoValido) {
 //            throw new IllegalAccessException();
 //        }
 
-        usuarioEntity = rep.buscar(usuarioEntity.getLogin());
+        usuarioEntity = rep.buscarByLogin(usuarioEntity.getLogin());
 
-        if ( nonNull(usuarioEntity) ){
+        if ( rep.exists(usuarioEntity.getLogin() ))  //nonNull(usuarioEntity) ){
+        {
             throw new IllegalStateException("Já existe um usuario com o login " + usuarioEntity.getLogin());
         }
 

@@ -1,20 +1,26 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tab_usuario",uniqueConstraints = @UniqueConstraint(columnNames = "user", name = "uk_user"))
 public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "user",length = 20)
     private String login;
+
+    @Column(name = "password",length = 100,nullable = false)
     private String senha;
+
+    @Column(length = 50,nullable = false)
     private String nome;
+
+    @Column(length = 12,nullable = false)
     private String cpf;
 
     public UsuarioEntity(){}
