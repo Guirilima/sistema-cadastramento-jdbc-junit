@@ -30,7 +30,5 @@ public class UsuarioService {
 
         rep.incluir(usuarioEntity);
 
-        System.out.println("FIM");
-
     }
 }
